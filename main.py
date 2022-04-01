@@ -6,13 +6,13 @@ from keep_alive import keep_alive
 ID = os.environ['ID']
 
 def replaceStop(stop):
-    return str(stop).replace(' dr', ' drive').replace(' rd', ' road').replace(' stn',' station').replace(' str', ' street').replace(' blvd', ' boulevard').replace(' ln',' lane').replace(' stn',' station').replace(' av',' avenue')
+    return str(stop).replace(' dr', ' drive').replace(' rd', ' road').replace(' stn',' station').replace(' str', ' street').replace(' blvd', ' boulevard').replace(' ln',' lane').replace(' stn',' station').replace(' av',' avenue').replace(' ctr', ' centre')
 
 def start(update, context):
-    update.message.reply_text("Welcome to LondonBusChecker Telegram Bot")
+    update.message.reply_text("Welcome to LondonBusChecker Telegram Bot\nUse /help to get help")
 
 def help(update, context):
-    update.message.reply_text("Use 'route' to search for a line (e.g. route 1)\nUse 'time' for arrivals at a stop in the coming 30 minutes (e.g. time New Oxford Street)\nUse 'stop' to search for lines stopping at a stop (e.g. stop New Oxford Street)")
+    update.message.reply_text("Use 'route' to search for a line (e.g. route 1)\n\nUse 'time' for arrivals at a stop in the coming 30 minutes (e.g. time New Oxford Street)\n\nUse 'stop' to search for lines stopping at a stop (e.g. stop New Oxford Street)")
 
 def handle_message(update, context):
     message = update.message.text
