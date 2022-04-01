@@ -2,7 +2,7 @@
 A Telegram bot for London buses about arrivals and bus routes.
 
 ## Usage
-Go to Telegram and send /start to @londonBusChecker_bot
+Go to Telegram and send /start to @londonBusChecker_bot or go to https://t.me/londonBusChecker_bot
 
 Use /help for more information about the bot
 
