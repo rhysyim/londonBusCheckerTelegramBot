@@ -129,7 +129,9 @@ def handle_message(update, context):
             for i in routes:
                 update.message.reply_text(str(route).upper() + " (" + str(i["direction"]).capitalize() + ") : " + i["originationName"] + " --> " + i["destinationName"])
                 update.message.reply_text("For more information about the route, use '" + str(i["direction"]).capitalize() + " " + route + "'")
-
+    else:
+        update.message.reply_text("Not a valid command")
+                
 keep_alive()
 updater = telegram.ext.Updater(os.environ['ID'], use_context=True)
 disp = updater.dispatcher
