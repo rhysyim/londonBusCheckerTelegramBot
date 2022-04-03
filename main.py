@@ -49,7 +49,7 @@ def handle_message(update, context):
         for i in keys:
             update.message.reply_text(i)
 
-    if message.startswith('stop') or message.startswith('Stop'):
+    elif message.startswith('stop') or message.startswith('Stop'):
         station = str(message).replace("stop ", "", 1).replace("Stop ", "", 1)
         replaced = replaceStop(station)
         thatdict = {}
@@ -88,7 +88,7 @@ def handle_message(update, context):
         for i in keys:
             update.message.reply_text(i)
 
-    if message.startswith('outbound') or message.startswith('Outbound'):
+    elif message.startswith('outbound') or message.startswith('Outbound'):
         route = str(message).replace("outbound ", "", 1).replace("Outbound ", "", 1)
         outbound = requests.get("https://api.tfl.gov.uk/Line/" + str(route) + "/Route/Sequence/Outbound")
         if outbound.status_code == 404:
@@ -103,7 +103,7 @@ def handle_message(update, context):
                 j = j + 1
             update.message.reply_text("End of route " + route + " (Outbound)")
 
-    if message.startswith('inbound') or message.startswith('Inbound'):
+    elif message.startswith('inbound') or message.startswith('Inbound'):
         route = str(message).replace("inbound ", "", 1).replace("Inbound ", "", 1)
         inbound = requests.get("https://api.tfl.gov.uk/Line/" + str(route) + "/Route/Sequence/Inbound")
         if inbound.status_code == 404:
@@ -118,7 +118,7 @@ def handle_message(update, context):
                 j = j + 1
             update.message.reply_text("End of route " + route + " (Inbound)")
     
-    if message.startswith('route') or message.startswith('Route'):
+    elif message.startswith('route') or message.startswith('Route'):
         route = str(message).replace("route ", "", 1).replace("Route ", "", 1)
         response = requests.get("https://api.tfl.gov.uk/line/" + route +"/route")
         if response.status_code == 404:
