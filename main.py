@@ -1,7 +1,6 @@
 import os
 import telegram.ext
 import requests
-import re
 import string
 from keep_alive import keep_alive
 
