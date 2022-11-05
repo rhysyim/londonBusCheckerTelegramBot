@@ -48,6 +48,8 @@ Map Waterloo Bridge / South Bank
 // https://www.google.com/maps/search/51.506509,-0.114864
 ```
 
+- Lowercase and uppercase are accepted
+
 ## API Reference
 Transport for London API - https://api-portal.tfl.gov.uk/
 
