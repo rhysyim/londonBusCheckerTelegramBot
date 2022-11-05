@@ -58,7 +58,7 @@ def handle_message(update, context):
                 send = ""
         update.message.reply_text(send)
             
-    if message.startswith('stop') or message.startswith('Stop'):
+    elif message.startswith('stop') or message.startswith('Stop'):
         station = str(message).replace("stop ", "", 1).replace("Stop ", "", 1)
         replaced = replaceStop(station)
         thatdict = {}
@@ -105,7 +105,7 @@ def handle_message(update, context):
                 count = 0
         update.message.reply_text(send)
 
-    if message.startswith('outbound') or message.startswith('Outbound'):
+    elif message.startswith('outbound') or message.startswith('Outbound'):
         route = str(message).replace("outbound ", "", 1).replace("Outbound ", "", 1)
         outbound = requests.get("https://api.tfl.gov.uk/Line/" + str(route) + "/Route/Sequence/Outbound")
         if outbound.status_code == 404:
@@ -128,7 +128,7 @@ def handle_message(update, context):
             update.message.reply_text(send)
             # update.message.reply_text("End of route " + route + " (Outbound)")
 
-    if message.startswith('inbound') or message.startswith('Inbound'):
+    elif message.startswith('inbound') or message.startswith('Inbound'):
         route = str(message).replace("inbound ", "", 1).replace("Inbound ", "", 1)
         inbound = requests.get("https://api.tfl.gov.uk/Line/" + str(route) + "/Route/Sequence/Inbound")
         if inbound.status_code == 404:
@@ -150,7 +150,7 @@ def handle_message(update, context):
                 count = count + 1
             update.message.reply_text(send)
     
-    if message.startswith('route') or message.startswith('Route'):
+    elif message.startswith('route') or message.startswith('Route'):
         route = str(message).replace("route ", "", 1).replace("Route ", "", 1)
         response = requests.get("https://api.tfl.gov.uk/line/" + route +"/route")
         if response.status_code == 404:
@@ -162,7 +162,7 @@ def handle_message(update, context):
                 update.message.reply_text(route + " (" + i["direction"] + ") : " + i["originationName"] + " --> " + i["destinationName"])
                 update.message.reply_text("For more information about the route, use '" + i["direction"] + " " + route + "'")
 
-    if message.startswith('map') or message.startswith('Map'):
+    elif message.startswith('map') or message.startswith('Map'):
         station = str(message).replace("map ", "", 1).replace("Map ", "", 1)
         replaced = replaceStop(station)
         searchResponse = requests.get("https://api.tfl.gov.uk/StopPoint/Search?query=" + replaced).json()
@@ -172,6 +172,8 @@ def handle_message(update, context):
             lat = str(searchResponse["matches"][0]["lat"])
             long = str(searchResponse["matches"][0]["lon"])
             update.message.reply_text("https://www.google.com/maps/search/" + lat + "," + long)
+     else:
+        update.message.reply_text("Command not recognized")
 
 keep_alive()
 updater = telegram.ext.Updater(os.environ['ID'], use_context=True)
