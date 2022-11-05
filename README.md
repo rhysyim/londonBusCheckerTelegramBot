@@ -13,11 +13,6 @@ Transport for London API - https://api-portal.tfl.gov.uk/
 
 Telegram API - https://core.telegram.org/bots/api
 
-## Hostage
-Replit - https://replit.com/
-
-UptimeRobot - https://uptimerobot.com/
-
 ## Acknowledgments
 Powered by TfL Open Data
 
