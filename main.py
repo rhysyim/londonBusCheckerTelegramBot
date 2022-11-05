@@ -3,6 +3,7 @@ import requests
 import re
 import string
 import os
+from keep_alive import keep_alive
 
 def replaceStop(stop):
     return str(stop).replace(' dr ', ' drive ').replace(' rd', ' road ').replace(' st  ', ' street ').replace(' blvd', ' boulevard ').replace(' ln',' lane ').replace(' av ',' avenue ')
@@ -172,6 +173,7 @@ def handle_message(update, context):
             long = str(searchResponse["matches"][0]["lon"])
             update.message.reply_text("https://www.google.com/maps/search/" + lat + "," + long)
 
+keep_alive()
 updater = telegram.ext.Updater(os.environ['ID'], use_context=True)
 disp = updater.dispatcher
 
