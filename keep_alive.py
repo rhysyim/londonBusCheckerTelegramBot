@@ -5,7 +5,7 @@ app = Flask('')
 
 @app.route('/')
 def home():
-    return "Hello. I am alive!"
+    return "London Bus Checker Telegram Bot - https://github.com/rhysyim/londonBusCheckerTelegramBot"
 
 def run():
   app.run(host='0.0.0.0',port=8080)
