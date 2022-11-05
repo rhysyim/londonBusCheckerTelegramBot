@@ -24,7 +24,7 @@ def handle_message(update, context):
         station = str(message).replace("time ", "", 1).replace("Time ", "", 1)
         replaced = replaceStop(station)
         thisdict = {}
-        searchResponse = requests.get("https://api.tfl.gov.uk/StopPoint/Search?query=" + replaced).json()
+        searchResponse = requests.get("https://api.tfl.gov.uk/StopPoint/Search?query=" + str(replaced)).json()
         if searchResponse["total"] == 0:
             update.message.reply_text(str(station + " not found"))
             return
