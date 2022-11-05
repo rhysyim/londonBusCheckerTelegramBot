@@ -128,6 +128,16 @@ def handle_message(update, context):
             for i in routes:
                 update.message.reply_text(str(route).upper() + " (" + str(i["direction"]).capitalize() + ") : " + i["originationName"] + " --> " + i["destinationName"])
                 update.message.reply_text("For more information about the route, use '" + str(i["direction"]).capitalize() + " " + route + "'")
+    elif message.startswith('map') or message.startswith('Map'):
+        station = str(message).replace("map ", "", 1).replace("Map ", "", 1)
+        replaced = replaceStop(station)
+        searchResponse = requests.get("https://api.tfl.gov.uk/StopPoint/Search?query=" + replaced).json()
+        if searchResponse["total"] == 0:
+            update.message.reply_text(str(station + " not found"))
+        else:
+            lat = str(searchResponse["matches"][0]["lat"])
+            long = str(searchResponse["matches"][0]["lon"])
+            update.message.reply_text("https://www.google.com/maps/search/" + lat + "," + long)
     else:
         update.message.reply_text("Not a valid command")
                 
