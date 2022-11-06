@@ -19,7 +19,6 @@ def about(update,context):
 
 def handle_message(update, context):
     message = update.message.text
-    print(message)
     if message.startswith('time') or message.startswith('Time'):
         station = str(message).replace("time ", "", 1).replace("Time ", "", 1)
         replaced = replaceStop(station)
