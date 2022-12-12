@@ -59,3 +59,6 @@ Telegram API - https://core.telegram.org/bots/api
 Powered by TfL Open Data
 
 Contains OS data © Crown copyright and database rights 2016 and Geomni UK Map data © and database rights [2019]
+
+## Reference
+API hosted on Replit (https://replit.com) with UptimeRobot (https://uptimerobot.com)
