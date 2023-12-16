@@ -2,7 +2,6 @@
 A Telegram bot for London buses about arrivals and bus routes.
 
 ## Usage
-Go to Telegram and send /start to @londonBusChecker_bot or go to https://t.me/londonBusChecker_bot
 
 Use /help for more information about the bot
 
@@ -59,6 +58,3 @@ Telegram API - https://core.telegram.org/bots/api
 Powered by TfL Open Data
 
 Contains OS data © Crown copyright and database rights 2016 and Geomni UK Map data © and database rights [2019]
-
-## Reference
-API hosted on Replit (https://replit.com) with UptimeRobot (https://uptimerobot.com)
